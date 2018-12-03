@@ -1,6 +1,6 @@
 <template lang="html">
     <div>
-            <input type="checkbox" id="test"  @change="onChangeInp"/>
+            <input type="checkbox" id="test"  @change="onChangeInp" :class="[ isActive ? 'active' : '' ]" />
             <label for="test">{{msg()}}</label>
     </div>
     
@@ -9,6 +9,9 @@
 
 <script>
 export default {
+    props: {
+        isActive: Boolean
+    },
     methods: {
         onChangeInp(evt) {
             // 부모의 change라는 이벤트 호출

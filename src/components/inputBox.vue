@@ -1,7 +1,7 @@
 <template lang="html">
     <div id="wrap">
-          <Checkbox  @change="onChangeInp"  />
-          <Button @onClick="onClick" />
+          <Checkbox  @change="onChangeInp"  :isActive = isActive />
+          <Button @onClick="onClick" :btbTxt = btbTxt />
     </div>
     
 </template>
@@ -15,12 +15,18 @@ export default {
         Checkbox,
         Button
     },
+    data: function() {
+      return {
+        btbTxt: '버튼입니다.',
+        isActive:''
+      }
+    },
     methods: {
         onClick() {
-            alert('button click');
+            this.btbTxt = '버튼 클릭 합니다.';
         },
         onChangeInp(evt){
-           console.log(evt.target.checked)
+          this.isActive = evt.target.checked;
         }
     }
 }
